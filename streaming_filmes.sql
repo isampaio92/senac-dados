@@ -34,25 +34,23 @@ FOREIGN KEY (filme_id) REFERENCES filmes(id)
 
 SET GLOBAL local_infile = 1;
 
-LOAD DATA INFILE "/var/lib/mysql-files/usuarios.csv"
+LOAD DATA INFILE "C:/Users/igor.queiroz/Documents/senac-dados/usuarios.csv"
 INTO TABLE usuarios
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, nome, email, pais, plano, data_cadastro);
 
-LOAD DATA INFILE "/var/lib/mysql-files/filmes.csv"
+LOAD DATA INFILE "C:/Users/igor.queiroz/Documents/senac-dados/filmes.csv"
 INTO TABLE filmes
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, titulo, genero, ano_lancamento, duracao, classificacao, imdb);
 
-LOAD DATA INFILE "/var/lib/mysql-files/avaliacoes.csv"
+LOAD DATA INFILE "C:/Users/igor.queiroz/Documents/senac-dados/avaliacoes.csv"
 INTO TABLE avaliacoes
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, usuario_id, filme_id, nota, data_avaliacao, assistiu_completo);
-
-

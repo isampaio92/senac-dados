@@ -1,5 +1,7 @@
 USE streaming_filmes;
 
+SELECT * FROM filmes;
+SELECT * FROM usuarios;
 SELECT * FROM avaliacoes;
 
 SELECT usuarios.nome, filmes.titulo, avaliacoes.nota
