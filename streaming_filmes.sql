@@ -18,7 +18,7 @@ genero VARCHAR(100) NOT NULL,
 ano_lancamento INT,
 duracao INT,
 classificacao VARCHAR(100),
-imdb DECIMAL(10, 1)
+imdb DECIMAL(2, 1)
 );
 
 CREATE TABLE avaliacoes (
@@ -34,21 +34,25 @@ FOREIGN KEY (filme_id) REFERENCES filmes(id)
 
 SET GLOBAL local_infile = 1;
 
-LOAD DATA INFILE "C:/Users/igor.queiroz/Documents/senac-dados/usuarios.csv"
+LOAD DATA INFILE "/var/lib/mysql-files/usuarios.csv"
 INTO TABLE usuarios
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, nome, email, pais, plano, data_cadastro);
 
-LOAD DATA INFILE "C:/Users/igor.queiroz/Documents/senac-dados/filmes.csv"
+LOAD DATA INFILE "/var/lib/mysql-files/filmes.csv"
 INTO TABLE filmes
 FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (id, titulo, genero, ano_lancamento, duracao, classificacao, imdb);
 
-SELECT * FROM filmes;
+LOAD DATA INFILE "/var/lib/mysql-files/avaliacoes.csv"
+INTO TABLE avaliacoes
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(id, usuario_id, filme_id, nota, data_avaliacao, assistiu_completo);
 
-DROP TABLE avaliacoes;
-DROP TABLE filmes;
+
